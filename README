@@ -1,0 +1,186 @@
+Module: Spritmonitor
+Version: 1.0.0
+Author: Oliver Riesen <oliver@riesen.org>
+
+Adds mileage icon from Spritmonitor.de (Gas Mileage and Vehicle's Costs
+Calculator) to user profile.
+
+Tested on version 5.2.7.
+
+
+License:
+-------
+
+Free to use, modify, or redistribute this code so long as I am given credit for
+the original development somewhere. This code comes with absolutly no warranty.
+
+
+Installation:
+------------
+
+1. Unpack the archive.
+
+2. Move the directory "spritmonitor" to the directory "mods" within your
+   Phorum installation. Don't change the directory name!
+
+3. Login as administrator in Phorum's administrative interface and go to the
+   "Modules" section.
+
+4. Enable the module "Spritmonitor".
+
+5. Templates must be configured to show mileage icon. Suggested template
+   changes are included below.
+
+
+Module settings:
+---------------
+
+This module doesn't have settings.
+
+
+Language support:
+----------------
+
+This module supports multiple languages.
+
+The following languages are included:
+
+- English
+- German (formal)
+- German (informal) male
+- German (informal) female
+
+If you want to translate the module to a new language, you'll have to do the
+following:
+
+Copy lang/english.php to lang/yourlang.php (yourlang.php must have the same
+name as Phorum's main language file that you use). After this, translate the
+strings in lang/yourlang.php.
+
+If you have created a translation for this module, please post a zip file
+containing lang/yourlang.php in the module thread at phorum.org, so the
+translation can be added to the module package. See:
+http://www.phorum.org/phorum5/read.php?62,130539
+
+
+Main template customization:
+-------------------------------
+
+To display the mileage icon on various Phorum pages, you will have to edit the
+Phorum template files. Here is a description of the files and some sample
+implementations for the emerald template. The added code is shown here inside
+the a box.
+
+* read.tpl (flat read mode)
+
+Incorporate the code for example like below, to make it show up under the user
+details.
+
+...
+...
+<td width="100%">
+    <div class="message-author icon-user">
+        {IF MESSAGES->URL->PROFILE}<a href="{MESSAGES->URL->PROFILE}">{/IF}{MESSAGES->author}{IF MESSAGES->URL->PROFILE}</a>{/IF}
+        {IF MESSAGES->URL->PM}<small>[ <a href="{MESSAGES->URL->PM}">{LANG->PrivateReply}</a> ]</small>{/IF}
+    </div>
+    _____________________________________________________________
+   |                                                             |
+    {IF MESSAGES->user->mod_spritmonitor}{INCLUDE "spritmonitor::read"}{/IF}
+   |_____________________________________________________________|
+
+    <small>
+    <strong><a href="{MESSAGES->URL->READ}">{MESSAGES->subject}</a> {IF MESSAGES->new}<span class="new-flag">{MESSAGES->new}</span>{/IF}</strong><br />
+    {MESSAGES->datestamp}
+    </small>
+</td>
+...
+...
+
+* read_hybrid.tpl (hybrid read mode)
+
+Incorporate the code for example like below, to make it show up under the user
+details.
+
+...
+...
+<td width="100%">
+    <div class="message-author icon-user">
+        {IF MESSAGES->URL->PROFILE}<a href="{MESSAGES->URL->PROFILE}">{/IF}{MESSAGES->author}{IF MESSAGES->URL->PROFILE}</a>{/IF}
+        {IF MESSAGES->URL->PM}<small>[ <a href="{MESSAGES->URL->PM}">{LANG->PrivateReply}</a> ]</small>{/IF}
+    </div>
+    _____________________________________________________________
+   |                                                             |
+    {IF MESSAGES->user->mod_spritmonitor}{INCLUDE "spritmonitor::read_hybrid"}{/IF}
+   |_____________________________________________________________|
+
+    <small>
+    <strong><a href="{MESSAGES->URL->READ}">{MESSAGES->subject}</a> {IF MESSAGES->new}<span class="new-flag">{MESSAGES->new}</span>{/IF}</strong><br />
+    {MESSAGES->datestamp}
+    </small>
+</td>
+...
+...
+
+* read_threads.tpl (threaded read mode)
+
+Incorporate the code for example like below, to make it show up under the user
+details.
+
+...
+...
+<td width="100%">
+    <div class="message-author icon-user">
+        {IF MESSAGE->URL->PROFILE}<a href="{MESSAGE->URL->PROFILE}">{/IF}{MESSAGE->author}{IF MESSAGE->URL->PROFILE}</a>{/IF}
+        {IF MESSAGE->URL->PM}<small>[ <a href="{MESSAGE->URL->PM}">{LANG->PrivateReply}</a> ]{/IF}
+    </div>
+    _____________________________________________________________
+   |                                                             |
+    {IF MESSAGE->user->mod_spritmonitor}{INCLUDE "spritmonitor::read_threads"}{/IF}
+   |_____________________________________________________________|
+    <div class="message-date">{MESSAGE->datestamp}</div>
+</td>
+...
+...
+
+* profile.tpl (if you want the user's mileage icon to appear in the profile
+page)
+
+Incorporate the code for example like below, to make it show up under the user
+details.
+
+...
+...
+    {IF PROFILE->date_last_active}
+        <dt>{LANG->DateActive}:&nbsp;</dt>
+        <dd>{PROFILE->date_last_active}</dd>
+    {/IF}
+    _____________________________________________________________
+   |                                                             |
+    {IF PROFILE->mod_spritmonitor}{INCLUDE "spritmonitor::profile"}{/IF}
+   |_____________________________________________________________|
+</dl>
+...
+...
+
+
+Module template customization:
+-----------------------------
+
+By default, this module will use the template files from the directory
+"templates/emerald".
+
+If you want to modify the templates to make them work better for your site's
+template, then do not edit the template files that were in the module
+distribution. Instead, copy the full directory
+
+  mods/spritmonitor/templates/emerald
+
+to
+
+  mods/spritmonitor/templates/yourtemplatename
+
+(asuming that your active site's template is stored as
+"templates/yourtemplatename") and edit the files in the new directory. Phorum
+will automatically recognize that you have created a specific template set to
+use for your site's active template.
+
