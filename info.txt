@@ -4,7 +4,7 @@ author: Oliver Riesen <oliver@riesen.org>
 url: http://www.phorum.org/phorum5/read.php?62,130539
 category: user_features
 required_version: 5.2.0
-version: 1.0.0
+version: 1.0.1
 
 priority: run hook tpl_cc_usersettings before google_maps
 
