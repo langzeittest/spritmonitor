@@ -1,6 +1,9 @@
 Changelog:
 ---------
 
+2016/07/27 version 1.0.2 by Oliver Riesen-Mallmann <oliver@riesen.org>
+- Fixed template files to work with https too.
+
 2015/08/20 version 1.0.1 by Oliver Riesen <oliver@riesen.org>
 - Rewrite of install file.
 
