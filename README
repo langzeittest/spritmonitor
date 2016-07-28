@@ -1,6 +1,6 @@
 Module: Spritmonitor
-Version: 1.0.1
-Author: Oliver Riesen <oliver@riesen.org>
+Version: 1.0.2
+Author: Oliver Riesen-Mallmann <oliver@riesen.org>
 
 Adds mileage icon from Spritmonitor.de (Gas Mileage and Vehicle's Costs
 Calculator) to user profile.
@@ -190,4 +190,3 @@ Contribution:
 
 Contribute on GitHub:
 https://github.com/langzeittest/spritmonitor
-

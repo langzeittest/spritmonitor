@@ -1,10 +1,10 @@
 title: Spritmonitor Module
 desc: Adds mileage icon from <a href="http://www.spritmonitor.de/en/">Spritmonitor.de</a> (Gas Mileage and Vehicle's Costs Calculator) to user profile.
-author: Oliver Riesen <oliver@riesen.org>
+author: Oliver Riesen-Mallmann <oliver@riesen.org>
 url: http://www.phorum.org/phorum5/read.php?62,130539
 category: user_features
 required_version: 5.2.0
-version: 1.0.1
+version: 1.0.2
 
 priority: run hook tpl_cc_usersettings before google_maps
 
